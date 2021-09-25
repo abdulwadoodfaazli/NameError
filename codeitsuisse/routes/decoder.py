@@ -12,4 +12,4 @@ def getAnswer():
     possible = info.get('possible_values')
     num = info.get('num_slots')
     guess = random.sample(possible, num)
-    return guess
+    return json.dumps(guess)
