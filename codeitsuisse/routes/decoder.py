@@ -8,8 +8,8 @@ logger = logging.getLogger(__name__)
 @app.route('/decoder', methods=['POST'])
 
 def getAnswer():
-    info = request.get_data(as_text=True)
-    possible = info['possible_values']
-    num = info['num_slots']
+    info = request.get_json()
+    possible = info.get('possible_values')
+    num = info.get('num_slots')
     guess = random.sample(possible, num)
     return guess
